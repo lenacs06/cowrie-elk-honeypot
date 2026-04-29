@@ -67,3 +67,7 @@ Kibana (visualization)
 ## 📌 Status
 
 ✔️ Fully functional in a local environment
+
+## 📸 Screenshots
+
+![Dashboard](./dashboard_discover.png)
