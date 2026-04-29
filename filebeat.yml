@@ -1,0 +1,20 @@
+filebeat.inputs:
+  - type: filestream
+    id: cowrie-json
+    enabled: true
+    paths:
+      - /cowrie-logs/cowrie.json
+    parsers:
+      - ndjson:
+          target: ""
+          overwrite_keys: true
+          add_error_key: true
+
+output.elasticsearch:
+  hosts: ["http://elasticsearch:9200"]
+  index: "cowrie-logs-%{+yyyy.MM.dd}"
+
+setup.template.name: "cowrie-logs"
+setup.template.pattern: "cowrie-logs-*"
+
+logging.level: info
